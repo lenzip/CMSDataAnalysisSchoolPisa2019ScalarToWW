@@ -40,6 +40,12 @@ variables['mTi']  = {   'name': 'mTi',            #   variable name
                         'xaxis' : 'm_{T,i} [GeV]',  #   x axis name
                         'fold' : 0
                         }
+variables['njet']  = {
+                        'name': 'njet',     
+                        'range' : (5,0,5),   
+                        'xaxis' : 'Number of jets',
+                        'fold' : 2   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
+                        }                        
 '''
 variables['ptll']  = {   'name': 'ptll',            #   variable name    
                         'range' : (20,0,200),    #   variable range
