@@ -19,16 +19,16 @@ fi
 cd $outputdir
 
 #do the initial fit
-combineTool.py -M Impacts -d workspace.${mass}.root -m ${mass} --doInitialFit -t -1 --expectSignal=1 -n nuis 
+combineTool.py -M Impacts -d workspace.${mass}.root -m ${mass} --doInitialFit -t -1 --expectSignal=1 -n nuis.${mass} 
 
 # do the initial fit for rateParams separately
 rateparams=CMS_hww_WWnorm,CMS_hww_Topnorm,CMS_hww_DYttnorm,
 ranges=-2,4
 rateparamsrange=${rateparams//,/=$ranges:}
-combineTool.py -M Impacts -d workspace.${mass}.root -m ${mass} --doInitialFit -t -1 --expectSignal=1 --named ${rateparams%?} --setParameterRanges ${rateparamsrange%?} -n rateParams
+combineTool.py -M Impacts -d workspace.${mass}.root -m ${mass} --doInitialFit -t -1 --expectSignal=1 --named ${rateparams%?} --setParameterRanges ${rateparamsrange%?} -n rateParams.${mass}
 
 # do the fits for each nuisance
-combineTool.py -M Impacts -d workspace.${mass}.root -m ${mass} --doFits -t -1 --expectSignal=1 --job-mode condor --task-name nuis 
+combineTool.py -M Impacts -d workspace.${mass}.root -m ${mass} --doFits -t -1 --expectSignal=1 --job-mode condor --task-name nuis -n nuis.${mass} 
 
 # do the fit for each rateParam
-combineTool.py -M Impacts -d workspace.${mass}.root -m ${mass} --doFits -t -1 --expectSignal=1 --job-mode condor --task-name rateParams --named ${rateparams%?} --setParameterRanges ${rateparamsrange%?}
+combineTool.py -M Impacts -d workspace.${mass}.root -m ${mass} --doFits -t -1 --expectSignal=1 --job-mode condor --task-name rateParams --named ${rateparams%?} --setParameterRanges ${rateparamsrange%?} -n rateParams.${mass}
