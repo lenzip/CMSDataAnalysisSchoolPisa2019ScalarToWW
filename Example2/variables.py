@@ -36,9 +36,9 @@ variables['mth']  = {   'name': 'mth',            #   variable name
                         }
 
 variables['mTi']  = {   'name': 'mTi',            #   variable name    
-                        'range' : ([100,150,200,250,300,350,400,450,500,550,600,650,700,750,800,900,1000,2000],),    #   variable range
+                        'range' : ([100,200,300,400,500,600,800,1000,2000],),    #   variable range
                         'xaxis' : 'm_{T,i} [GeV]',  #   x axis name
-                        'fold' : 0
+                        'fold' : 3
                         }
 variables['njet']  = {
                         'name': 'njet',     
