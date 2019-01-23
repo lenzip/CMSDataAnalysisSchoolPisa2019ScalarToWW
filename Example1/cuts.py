@@ -16,6 +16,7 @@ cuts['hww2l2v_13TeV_dytt']  = '(std_vector_lepton_flavour[0] * std_vector_lepton
                 && (abs(std_vector_lepton_flavour[1]) == 13 || std_vector_lepton_pt[1]>13) \
                 && ( mth<60) \
                 && mll>40 && mll<80 \
+                && std_vector_jet_pt[0] < 30 \
                 && '+bVeto+' \
                 '
 # top control region                
